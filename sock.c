@@ -9,12 +9,22 @@
 #include <string.h>
 
 #define BUF_SIZE 255
+
+char buf_get[BUF_SIZE];
+char reverse[BUF_SIZE];
+int len;
+
+void rev() {
+	for (int i=0; i < len; i++) {
+		reverse[i] = buf_get[len-1-i];
+	}
+	reverse[len] = '\0';
+}
 int main() {
 	int client_len;
 	int client_sockfd;
 
 	char buf_in[BUF_SIZE];
-	char buf_get[BUF_SIZE];
 
 	struct sockaddr_in clientaddr;
 
@@ -31,5 +41,27 @@ int main() {
 	}
 
 	read(client_sockfd, buf_get, 255);
-	printf("%s", buf_get);
+	for (int i=0; i < 255; i++) {
+		if (buf_get[i] == 0xa) {
+			buf_get[i] = '\0';
+			len = i;
+			break;
+		}
+		//printf("[%03d] %x : %c\n", i, buf_get[i], buf_get[i]);
+	}
+	printf("%s\n", buf_get);
+	rev();
+	printf("%s\n", reverse);
+	reverse[len] = 0xa;
+	write(client_sockfd, reverse, 255);
+	read(client_sockfd, buf_get, 255);
+	for (int i=0; i < 255; i++) {
+		if (buf_get[i] == 0xa) {
+			buf_get[i] = '\0';
+			len = i;
+			break;
+		}
+		//printf("[%03d] %x : %c\n", i, buf_get[i], buf_get[i]);
+	}
+	printf("%s\n", buf_get);
 }

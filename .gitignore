@@ -1,2 +1,4 @@
 sock
 compact-sock
+*.o
+echo

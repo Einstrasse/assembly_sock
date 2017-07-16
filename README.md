@@ -8,6 +8,14 @@ sock.c - Naive C socket programming
 compact-sock.c - compact version of C socket programming
 
 
+### Build command
+```
+make
+```
+```
+nasm -f elf64 echo.asm && ld -o echo echo.o
+```
+
 ### References
 
 #### SystemCall Tables

@@ -25,8 +25,25 @@ _start:
 	mov rdi, [rbp]
 	lea rsi, [rbp-300]; [rbp-300] -> read buffer
 	mov rdx, 255
-	syscall ;read
+	syscall ;read. fetch packet data from server
+
+	mov rax, 1
+	mov rdi, 1
+	lea rsi, [rbp-300]
+	mov rdx, 255
+	syscall ;write. dump received data
+
+	mov rcx, 0
+	lea rdx, [rbp-300]
+_cnt_loop:
+	inc rcx
+	cmp byte [rdx+rcx], 0xa
+	jne _cnt_loop
+	;get the length of received string. length is stored on rcx
+	nop
+	nop
 
 
 
-db 0xcc
+
+;db 0xcc

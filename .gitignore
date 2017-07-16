@@ -2,3 +2,5 @@ sock
 compact-sock
 *.o
 echo
+addr
+sock1

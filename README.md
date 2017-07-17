@@ -7,7 +7,7 @@ sock.c - Naive C socket programming
 
 compact-sock.c - compact version of C socket programming
 
-sock1.asm - Assembly socket programming
+*sock1.asm* - Assembly socket programming. Firstly success to functional requirements.
 
 
 ### Build command

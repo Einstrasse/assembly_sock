@@ -35,6 +35,7 @@ cat /usr/include/x86_64-linux-gnu/asm/unistd_64.h | head -n11
 1		sys_write		fd 		*buf 		count
 41		sys_socket		family	type		protocol
 42 		sys_connect		fd 		uservaddr	addrlen
+60		sys_exit		retval
 read	0 
 write	1
 socket	41

@@ -17,7 +17,7 @@ make
 ```
 Assemble assembly code
 ```
-nasm -f elf64 echo.asm && ld -o echo echo.o
+nasm -f elf64 sock1.asm && ld -o sock1 sock1.o
 ```
 Compile to assembly code from C-source code
 ```

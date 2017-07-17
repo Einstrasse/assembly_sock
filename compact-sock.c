@@ -49,7 +49,8 @@ int main() {
 	rev();
 	printf("%s\n", reverse);
 	reverse[len] = 0xa;
-	write(client_sockfd, reverse, 255);
+	//write(client_sockfd, reverse, 255);
+	write(client_sockfd, reverse, len);
 	read(client_sockfd, buf_get, 255);
 	for (int i=0; i < 255; i++) {
 		if (buf_get[i] == 0xa) {

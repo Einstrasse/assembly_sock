@@ -73,7 +73,7 @@ _rev_loop: ;reversely copy string
 	mov rax, 1
 	mov dword edi, [rbp]
 	lea rsi, [rbp-600]
-	add dword [rbp-604], 1
+	;add dword [rbp-604], 1
 	mov edx, [rbp-604]
 	syscall ;write. send reversed string to server
 
